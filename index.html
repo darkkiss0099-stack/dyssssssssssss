@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WELCOME</title>
+    <title>DERNYOUNGSAY</title>
     
     <link rel="icon" type="image/png" href="https://img5.pic.in.th/file/secure-sv1/dys.th.png">
     
@@ -78,30 +78,52 @@
             justify-content: center;
         }
 
-        /* --- Header จัดกึ่งกลาง ใหญ่ และเรืองแสง --- */
+        /* --- DERNYOUNGSAY: เรืองแสงและขยับเงาซ้ายขวา --- */
         h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2.5rem, 12vw, 5rem);
-            letter-spacing: 15px;
-            margin-bottom: 40px; 
+            font-size: clamp(2.5rem, 10vw, 4.5rem);
+            letter-spacing: 12px;
+            margin-bottom: 50px; 
             text-transform: uppercase;
             font-weight: 700;
-            color: #ffffff;
+            
+            /* เทคนิคทำให้ตัวอักษรเป็น Gradient */
+            background: linear-gradient(to right, #fff 20%, #888 40%, #fff 60%, #888 80%, #fff 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
             width: 100%;
             text-align: center;
-            animation: floatText 4s ease-in-out infinite, glowPulse 3s ease-in-out infinite;
+            
+            /* Animation: ลอยตัว, ไล่สีพื้นหลัง, และขยับเงา */
+            animation: 
+                floatText 4s ease-in-out infinite, 
+                shine 5s linear infinite,
+                shadowMove 3s ease-in-out infinite;
+            
             pointer-events: none;
-            min-height: 1.2em; /* รักษาพื้นที่ไว้แม้ไม่มีข้อความ */
         }
 
-        @keyframes floatText { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
-        
-        @keyframes glowPulse {
+        /* อนิเมชั่นลอยขึ้นลง */
+        @keyframes floatText { 
+            0%, 100% { transform: translateY(0); } 
+            50% { transform: translateY(-15px); } 
+        }
+
+        /* อนิเมชั่นไล่เงาแสงผ่านตัวอักษร */
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        /* อนิเมชั่นขยับเงาเรืองแสง ซ้าย-ขวา */
+        @keyframes shadowMove {
             0%, 100% { 
-                text-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.1);
+                filter: drop-shadow(-5px 0 10px rgba(255,255,255,0.3));
             }
             50% { 
-                text-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.4);
+                filter: drop-shadow(5px 0 20px rgba(255,255,255,0.6));
             }
         }
 
@@ -214,7 +236,7 @@
         }
 
         @media (max-width: 480px) {
-            h1 { font-size: 2.5rem; letter-spacing: 8px; }
+            h1 { font-size: 2rem; letter-spacing: 6px; }
             .btn { width: 300px; height: 80px; }
             .music-player { bottom: 20px; left: 20px; right: 20px; justify-content: center; }
         }
@@ -227,7 +249,9 @@
     </div>
 
     <div class="container">
-        <h1></h1> <div class="button-group">
+        <h1>DERNYOUNGSAY</h1> 
+
+        <div class="button-group">
             <a href="#" class="btn">
                 <span class="btn-text-main">MEMBER ALL</span>
                 <span class="btn-text-sub">MEMBER</span>
@@ -263,7 +287,7 @@
     <div id="youtube-player"></div>
 
     <footer>
-        © 2026 — Oshi
+        © 2026 DERNYOUNGSAY — Oshi
     </footer>
 
     <script>
