@@ -73,7 +73,7 @@
             font-family: 'Orbitron', sans-serif;
             font-size: clamp(2rem, 8vw, 3rem);
             letter-spacing: 10px;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             text-transform: uppercase;
             font-weight: 700;
             color: #ffffff;
@@ -82,18 +82,18 @@
 
         @keyframes floatText { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-        /* --- ส่วนหัว PARTNER พร้อมเส้นขีด --- */
+        /* --- ส่วนหัว PARTNER พร้อมเส้นขีด (ย้ายมาไว้ข้างล่าง Member All) --- */
         .partner-header {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 30px;
+            margin: 25px 0;
             gap: 20px;
         }
 
         .partner-header span {
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             letter-spacing: 8px;
             color: rgba(255, 255, 255, 0.4);
             text-transform: uppercase;
@@ -105,9 +105,9 @@
             background: linear-gradient(to var(--dir, right), rgba(255,255,255,0.2), transparent);
         }
 
-        .button-group { display: flex; flex-direction: column; gap: 15px; align-items: center; }
+        .button-group { display: flex; flex-direction: column; align-items: center; }
 
-        /* --- ป้าย MEMBER ALL (ขนาดใหญ่) --- */
+        /* --- สไตล์ป้ายปุ่มพื้นฐาน --- */
         .btn {
             display: flex; 
             flex-direction: column; 
@@ -123,12 +123,14 @@
             border-radius: 10px; 
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             backdrop-filter: blur(5px);
+            margin-bottom: 15px;
         }
 
-        /* --- ป้าย PARTNER (ขนาดเล็กกว่า) --- */
+        /* --- ป้าย PENNALES (ขนาดเล็กกว่า) --- */
         .btn-small {
             width: 280px;
             height: 75px;
+            margin-bottom: 0;
         }
 
         .btn-text-main {
@@ -152,7 +154,7 @@
             transform: scale(1.05);
         }
 
-        /* --- Music Player (ปรับให้คล้ายในรูป) --- */
+        /* --- Music Player --- */
         .music-player {
             position: fixed; bottom: 40px; left: 40px;
             background: rgba(20, 20, 20, 0.6);
@@ -228,26 +230,21 @@
     <div class="container">
         <h1>DERNYOUNGSAY</h1>
 
-        <div class="partner-header">
-            <div class="line" style="--dir: left"></div>
-            <span>PARTNER</span>
-            <div class="line" style="--dir: right"></div>
-        </div>
-
         <div class="button-group">
             <a href="#" class="btn">
                 <span class="btn-text-main">MEMBER ALL</span>
                 <span class="btn-text-sub">MEMBER</span>
             </a>
 
-            <a href="#" class="btn btn-small">
-                <span class="btn-text-main">PENNALES</span>
-                <span class="btn-text-sub">MEMBER</span>
-            </a>
+            <div class="partner-header">
+                <div class="line" style="--dir: left"></div>
+                <span>PARTNER</span>
+                <div class="line" style="--dir: right"></div>
+            </div>
 
             <a href="#" class="btn btn-small">
-                <span class="btn-text-main">PARTNER</span>
-                <span class="btn-text-sub">MEMBER</span>
+                <span class="btn-text-main">PENNALES</span>
+                <span class="btn-text-sub">PARTNER</span>
             </a>
         </div>
     </div>
