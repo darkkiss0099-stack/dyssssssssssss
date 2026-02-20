@@ -87,13 +87,13 @@
 
         .button-group { display: flex; flex-direction: column; gap: 20px; align-items: center; }
 
-        /* --- ปรับแต่งป้าย MEMBER ALL ใหม่ --- */
+        /* --- สไตล์ป้ายปุ่มพื้นฐาน --- */
         .btn {
             display: flex; 
-            flex-direction: column; /* จัดให้อยู่ในแนวตั้ง */
+            flex-direction: column; 
             justify-content: center; 
             align-items: center;
-            width: 420px; height: 100px; /* เพิ่มความสูงเล็กน้อยเพื่อให้มีที่วางข้อความล่าง */
+            width: 420px; height: 100px; 
             font-family: 'Orbitron', sans-serif;
             color: #ffffff;
             text-decoration: none; 
@@ -111,6 +111,7 @@
             font-size: 1.1rem;
             letter-spacing: 4px;
             font-weight: 700;
+            transition: letter-spacing 0.4s ease;
         }
 
         .btn-text-sub {
@@ -118,7 +119,6 @@
             letter-spacing: 2px;
             margin-top: 5px;
             color: rgba(255, 255, 255, 0.5);
-            font-family: 'Inter', sans-serif;
         }
 
         .btn:hover { 
@@ -129,7 +129,12 @@
         
         .btn:hover .btn-text-main {
             letter-spacing: 6px;
-            transition: 0.4s;
+        }
+
+        /* --- ป้าย PENNALES ตามรูป --- */
+        .btn-pennales {
+            /* สามารถปรับสีหรือเอฟเฟกต์เฉพาะของป้ายนี้ได้ที่นี่ */
+            border-color: rgba(255, 255, 255, 0.1);
         }
 
         /* --- Music Player Styles --- */
@@ -207,6 +212,11 @@
             <a href="#" class="btn">
                 <span class="btn-text-main">MEMBER ALL</span>
                 <span class="btn-text-sub">DERNYOUNGSAY</span>
+            </a>
+
+            <a href="#" class="btn btn-pennales">
+                <span class="btn-text-main">PENNALES</span>
+                <span class="btn-text-sub">MEMBER</span>
             </a>
         </div>
     </div>
