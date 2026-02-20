@@ -71,24 +71,24 @@
             text-align: center; 
             z-index: 1; 
             width: 100%; 
-            max-width: 800px;
+            max-width: 900px; /* ขยายความกว้างเล็กน้อยเพื่อให้ตัวอักษรไม่เบียด */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
         }
 
-        /* --- DERNYOUNGSAY: แก้ไขส่วนที่ตัวอักษรหาย --- */
+        /* --- DERNYOUNGSAY: ปรับปรุงให้เห็นครบทุกตัวอักษร --- */
         h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2.5rem, 10vw, 4.5rem);
-            letter-spacing: 12px;
+            font-size: clamp(2rem, 9vw, 4.5rem); /* ปรับขนาดเล็กน้อยให้พอดีกับหน้าจอ */
+            letter-spacing: clamp(5px, 2vw, 15px);
             margin-bottom: 50px; 
             text-transform: uppercase;
             font-weight: 700;
             
-            /* ปรับ Gradient ให้สว่างขึ้นเพื่อไม่ให้ตัว Y หาย */
-            background: linear-gradient(to right, #fff 0%, #aaa 25%, #fff 50%, #aaa 75%, #fff 100%);
+            /* ปรับ Gradient ให้สว่างขึ้น และตัดสีดำออกเพื่อป้องกันอักษรหาย */
+            background: linear-gradient(to right, #ffffff 0%, #cccccc 25%, #ffffff 50%, #cccccc 75%, #ffffff 100%);
             background-size: 200% auto;
             -webkit-background-clip: text;
             background-clip: text;
@@ -97,20 +97,24 @@
             width: 100%;
             text-align: center;
             
-            /* ปรับแต่ง Filter ให้ชัดเจนตลอดเวลา */
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+            /* เพิ่ม Stroke บางๆ เพื่อให้ขอบอักษรชัดเจนแม้แสงจะน้อยลง */
+            -webkit-text-stroke: 0.5px rgba(255,255,255,0.1);
+            
+            /* เงาเรืองแสงที่นุ่มนวลขึ้น */
+            filter: drop-shadow(0 0 15px rgba(255,255,255,0.3));
             
             animation: 
                 floatText 4s ease-in-out infinite, 
-                shine 6s linear infinite,
-                shadowMove 3s ease-in-out infinite;
+                shine 8s linear infinite, /* ปรับให้ช้าลงเพื่อความนวล */
+                shadowMove 4s ease-in-out infinite;
             
             pointer-events: none;
+            white-space: nowrap; /* ป้องกันอักษรตกบรรทัด */
         }
 
         @keyframes floatText { 
             0%, 100% { transform: translateY(0); } 
-            50% { transform: translateY(-15px); } 
+            50% { transform: translateY(-10px); } 
         }
 
         @keyframes shine {
@@ -119,10 +123,10 @@
 
         @keyframes shadowMove {
             0%, 100% { 
-                filter: drop-shadow(-8px 0 15px rgba(255,255,255,0.4));
+                filter: drop-shadow(-10px 0 20px rgba(255,255,255,0.4));
             }
             50% { 
-                filter: drop-shadow(8px 0 25px rgba(255,255,255,0.7));
+                filter: drop-shadow(10px 0 30px rgba(255,255,255,0.6));
             }
         }
 
@@ -235,7 +239,7 @@
         }
 
         @media (max-width: 480px) {
-            h1 { font-size: 2rem; letter-spacing: 6px; }
+            h1 { font-size: 1.8rem; letter-spacing: 6px; }
             .btn { width: 300px; height: 80px; }
             .music-player { bottom: 20px; left: 20px; right: 20px; justify-content: center; }
         }
