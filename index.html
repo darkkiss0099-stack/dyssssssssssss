@@ -29,7 +29,7 @@
             position: relative;
         }
 
-        /* --- Overlay สำหรับกดเข้าเว็บ (เพื่อให้ Autoplay ทำงาน) --- */
+        /* --- Overlay สำหรับกดเข้าเว็บ --- */
         #overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -87,23 +87,50 @@
 
         .button-group { display: flex; flex-direction: column; gap: 20px; align-items: center; }
 
+        /* --- ปรับแต่งป้าย MEMBER ALL ใหม่ --- */
         .btn {
-            display: flex; justify-content: center; align-items: center;
-            width: 420px; height: 85px;  
+            display: flex; 
+            flex-direction: column; /* จัดให้อยู่ในแนวตั้ง */
+            justify-content: center; 
+            align-items: center;
+            width: 420px; height: 100px; /* เพิ่มความสูงเล็กน้อยเพื่อให้มีที่วางข้อความล่าง */
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem; color: #ffffff;
-            text-decoration: none; text-transform: uppercase;
-            letter-spacing: 4px;
+            color: #ffffff;
+            text-decoration: none; 
+            text-transform: uppercase;
             background: linear-gradient(145deg, rgba(30, 30, 30, 0.9), rgba(15, 15, 15, 0.9));
             border: 1.5px solid rgba(255, 255, 255, 0.15);
             border-radius: 12px; 
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             transition: all 0.4s ease;
             backdrop-filter: blur(10px);
+            cursor: pointer;
         }
 
-        .btn-small { width: 320px; height: 65px; font-size: 0.9rem; }
-        .btn:hover { border-color: rgba(255, 255, 255, 0.4); transform: translateY(-3px); letter-spacing: 6px; }
+        .btn-text-main {
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            font-weight: 700;
+        }
+
+        .btn-text-sub {
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            margin-top: 5px;
+            color: rgba(255, 255, 255, 0.5);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn:hover { 
+            border-color: rgba(255, 255, 255, 0.4); 
+            transform: translateY(-3px); 
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+        }
+        
+        .btn:hover .btn-text-main {
+            letter-spacing: 6px;
+            transition: 0.4s;
+        }
 
         /* --- Music Player Styles --- */
         .music-player {
@@ -136,12 +163,12 @@
 
         #youtube-player { display: none; }
 
-        /* --- ปรับแต่ง Footer ให้อยู่ตรงกลาง --- */
+        /* --- Footer Center --- */
         footer {
             position: absolute;
             bottom: 30px;
             left: 50%;
-            transform: translateX(-50%); /* เทคนิคทำให้วัตถุ Absolute อยู่กึ่งกลางเป๊ะ */
+            transform: translateX(-50%);
             width: 100%;
             text-align: center;
             font-size: 0.7rem;
@@ -149,23 +176,22 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             z-index: 1;
-            pointer-events: none; /* เพื่อไม่ให้ Footer บังปุ่มที่อาจจะทับกัน */
+            pointer-events: none;
         }
         
         .oshi-link { 
             color: #ffffff; 
             text-decoration: none; 
             font-weight: 700;
-            pointer-events: auto; /* ให้ Link กดได้ปกติ */
+            pointer-events: auto;
             text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
             transition: all 0.3s ease;
         }
-        .oshi-link:hover { letter-spacing: 3px; }
 
         @media (max-width: 480px) {
-            .btn { width: 280px; } .btn-small { width: 220px; }
+            .btn { width: 280px; height: 85px; }
             .music-player { bottom: 10px; left: 10px; right: 10px; width: auto; }
-            footer { bottom: 85px; font-size: 0.6rem; } /* ขยับขึ้นหลบเครื่องเล่นเพลงในมือถือ */
+            footer { bottom: 85px; font-size: 0.6rem; }
         }
     </style>
 </head>
@@ -178,8 +204,10 @@
     <div class="container">
         <h1>DERNYOUNGSAY</h1>
         <div class="button-group">
-            <a href="#" class="btn">MEMBER ALL</a>
-            <a href="https://www.youtube.com/@Lucasmarco_04" target="_blank" class="btn btn-small">Youtube</a>
+            <a href="#" class="btn">
+                <span class="btn-text-main">MEMBER ALL</span>
+                <span class="btn-text-sub">DERNYOUNGSAY</span>
+            </a>
         </div>
     </div>
 
