@@ -83,7 +83,7 @@
             font-family: 'Orbitron', sans-serif;
             font-size: clamp(2.5rem, 12vw, 5rem);
             letter-spacing: 15px;
-            margin-bottom: 40px; /* ระยะห่างจากปุ่มด้านล่าง */
+            margin: 30px 0; /* ปรับ Margin เพื่อให้อยู่กึ่งกลางระหว่างป้าย */
             text-transform: uppercase;
             font-weight: 700;
             color: #ffffff;
@@ -91,6 +91,7 @@
             text-align: center;
             animation: floatText 4s ease-in-out infinite, glowPulse 3s ease-in-out infinite;
             pointer-events: none;
+            order: 2; /* กำหนดลำดับให้อยู่ที่ 2 (ตรงกลาง) */
         }
 
         @keyframes floatText { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
@@ -104,7 +105,10 @@
             }
         }
 
-        /* --- ปุ่มกด --- */
+        /* --- การจัดกลุ่มองค์กร --- */
+        .member-all-wrapper { order: 1; margin-bottom: 20px; } /* ป้ายบนสุด */
+        .partner-wrapper { order: 3; margin-top: 20px; } /* กลุ่ม Partner ล่างสุด */
+
         .button-group { 
             display: flex; 
             flex-direction: column; 
@@ -213,9 +217,8 @@
         }
 
         @media (max-width: 480px) {
-            h1 { font-size: 2.5rem; letter-spacing: 8px; }
+            h1 { font-size: 2.2rem; letter-spacing: 8px; margin: 20px 0; }
             .btn { width: 300px; height: 80px; }
-            .music-player { bottom: 20px; left: 20px; right: 20px; justify-content: center; }
         }
     </style>
 </head>
@@ -226,24 +229,28 @@
     </div>
 
     <div class="container">
-        <h1>DERNYOUNGSAY</h1>
-
-        <div class="button-group">
+        <div class="member-all-wrapper">
             <a href="#" class="btn">
                 <span class="btn-text-main">MEMBER ALL</span>
                 <span class="btn-text-sub">MEMBER</span>
             </a>
+        </div>
 
+        <h1>DERNYOUNGSAY</h1>
+
+        <div class="partner-wrapper">
             <div class="partner-header">
                 <div class="line" style="--dir: left"></div>
                 <span>PARTNER</span>
                 <div class="line" style="--dir: right"></div>
             </div>
 
-            <a href="#" class="btn" style="width: 300px; height: 80px;">
-                <span class="btn-text-main" style="font-size: 0.95rem;">PENNALES</span>
-                <span class="btn-text-sub">PARTNER</span>
-            </a>
+            <div class="button-group">
+                <a href="#" class="btn" style="width: 300px; height: 80px;">
+                    <span class="btn-text-main" style="font-size: 0.95rem;">PENNALES</span>
+                    <span class="btn-text-sub">PARTNER</span>
+                </a>
+            </div>
         </div>
     </div>
 
